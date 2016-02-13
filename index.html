@@ -22,6 +22,8 @@
 
 		<button onclick = "getLocation()">Press me, do it</button>
 
+		<p id = "oldCoord">Words!</p>
+
 		<!-- This is, well, the bottom bit -->
 		<div class="bottombit">
 			<p class="explanation">Intrepid spy, your next dead drop location is 37.4258709,-122.1712977.</p>
@@ -36,16 +38,18 @@
 
 		<script>
 
+		var x = document.getElementById("oldCoord");
+
 		function getLocation() {
-			if (navigator.getLocation) {
-				navigator.getLocation.getCurrentPosition(showPosition);
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
 			} else {
 				x.innerHTML = "Geolocation is not supported by this browser.";
 			}
 		}
 
 		function showPosition(position) {
-			x.innerHTML = "latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude;
+			x.innerHTML = "Latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude;
 		}
 </script>
 	</body>
