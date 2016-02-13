@@ -36,6 +36,17 @@
 
 		<script>
 
+		function getLocation() {
+			if (navigator.getLocation) {
+				navigator.getLocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+
+		function showPosition(position) {
+			x.innerHTML = "latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude;
+		}
 </script>
 	</body>
 </html>
