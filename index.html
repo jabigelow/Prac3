@@ -22,7 +22,6 @@
 
 		<button onclick = "getLocation()">Press me, do it</button>
 
-		<p id = "oldCoord">Words!</p>
 
 		<!-- This is, well, the bottom bit -->
 		<div class="bottombit">
@@ -38,7 +37,8 @@
 
 		<script>
 
-		var x = document.getElementById("oldCoord");
+		var x = document.getElementById("latitude");
+		var y = document.getElementById("longitude");
 
 		function getLocation() {
 			if (navigator.geolocation) {
@@ -49,7 +49,8 @@
 		}
 
 		function showPosition(position) {
-			x.innerHTML = "Latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude;
+			x.innerHTML = "Latitude: " + position.coords.latitude;
+			y.innerHTML = "Longitude: " + position.coords.longitude;
 		}
 </script>
 	</body>
